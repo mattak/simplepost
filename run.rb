@@ -18,7 +18,6 @@ post '/' do
 end
 
 get '/' do
-  request.env['REQUEST_URI']
   files = Dir.foreach(SAVEDIR)
     .select{|it| File.file?(it) }
     .collect{|it| "#{request.env['REQUEST_URI']}blobs/#{it}" }
